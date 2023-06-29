@@ -1,1 +1,1 @@
-# giphy_project
+GifGalaxy
