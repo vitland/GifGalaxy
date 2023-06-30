@@ -1,7 +1,12 @@
+import GifContainer from '../../components/GifContainer/GifContainer'
+import Searchbar from '../../components/Searchbar/Searchbar'
 
-const SearchPage = () => {
+const SearchPage = ({gifList}) => {
   return (
-    <div>SearchPage</div>
+    <>
+      <Searchbar />
+      <GifContainer {...{gifList}}/>
+    </>
   )
 }
 

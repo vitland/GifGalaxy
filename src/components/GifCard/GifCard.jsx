@@ -1,7 +1,8 @@
+import styles from './GifCard.module.scss';
 
-const GifCard = () => {
+const GifCard = ({ gif, title }) => {
   return (
-    <div>GifCard</div>
+    <img className={styles.gif} src={gif} alt={title} />
   )
 }
 
