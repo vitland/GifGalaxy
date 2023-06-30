@@ -1,7 +1,7 @@
 import styles from './GifContainer.module.scss';
 
 const GifContainer = ({ children }) => {
-  return <div className={styles.container}>{children}</div>;
+  return <section className={styles.container}>{children}</section>;
 };
 
 export default GifContainer;
