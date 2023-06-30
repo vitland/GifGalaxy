@@ -5,6 +5,7 @@ import styles from './GifContainer.module.scss';
 
 const GifContainer = ({ gifList }) => {
   const [isWebp, setIsWebp] = useState(null)
+  
   testWebP(function (support) {
     setIsWebp(support)
   })
@@ -17,3 +18,6 @@ const GifContainer = ({ gifList }) => {
           title={gif.title} />
       ))}
   </div>;
+}
+
+export default GifContainer

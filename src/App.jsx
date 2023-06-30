@@ -1,31 +1,31 @@
-import { useEffect, useState } from 'react'
-import Layout from './components/Layout/Layout'
-import Navbar from './components/Navbar/Navbar'
-import { GiphyApi } from './utils/api'
-import { Route, Routes } from 'react-router-dom'
-import SearchPage from './pages/SearchPage/SearchPage'
+import Layout from './components/Layout/Layout';
+import Navbar from './components/Navbar/Navbar';
+import { Route, Routes } from 'react-router-dom';
+import SearchPage from './pages/SearchPage/SearchPage';
+import TrendPage from './pages/TrendPage/TrendPage';
+import RandomPage from './pages/RandomPage/RandomPage';
 
 const App = () => {
-  const [gifList, setGifList] = useState(null)
-
-  useEffect(() => {
-    async function fetchSearch() {
-      const data = await GiphyApi.searchGif('space', 1)
-      setGifList(data.data)
-      console.log(data.data)
-    }
-    fetchSearch()
-  }, [])
-  
 
   return (
     <Layout>
       <Navbar />
       <Routes>
-          <Route path='/' element={<SearchPage {...{gifList}} />} />
+        <Route
+          path='/'
+          element={<SearchPage />}
+        />
+        <Route
+          path='trend'
+          element={<TrendPage />}
+        />
+        <Route
+          path='random'
+          element={<RandomPage />}
+        />
       </Routes>
     </Layout>
-  )
-}
+  );
+};
 
-export default App
+export default App;
