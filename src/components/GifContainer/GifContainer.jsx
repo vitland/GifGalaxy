@@ -9,11 +9,16 @@ const GifContainer = ({ gifList }) => {
     setIsWebp(support)
   })
 
-  return <div className={styles.container}>
+  return (
+    <div className={styles.container}>
       {gifList && gifList.map((gif) => (
         <GifCard
           key={gif.id}
-          gif={isWebp? gif.images.fixed_height.webp : gif.images.fixed_height.url}
+          gif={isWebp ? gif.images.fixed_height.webp : gif.images.fixed_height.url}
           title={gif.title} />
       ))}
-  </div>;
+    </div>
+  )
+};
+
+export default GifContainer;
