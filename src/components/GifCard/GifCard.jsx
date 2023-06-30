@@ -7,3 +7,4 @@ const GifCard = ({ gif, title }) => {
 }
 
 export default GifCard
+

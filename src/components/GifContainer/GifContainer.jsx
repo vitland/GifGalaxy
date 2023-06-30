@@ -17,6 +17,3 @@ const GifContainer = ({ gifList }) => {
           title={gif.title} />
       ))}
   </div>;
-};
-
-export default GifContainer;
