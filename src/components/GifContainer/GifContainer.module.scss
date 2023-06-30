@@ -1,0 +1,16 @@
+.container {
+  box-sizing: border-box;
+  display: grid;
+  max-width: 938px;
+  width: 100%;
+  gap: 30px 24px;
+  grid-template-columns: repeat(auto-fit, 296px);
+  justify-content: center;
+}
+.card {
+  box-sizing: border-box;
+  color: azure;
+  width: 297px;
+  height: 197px;
+  background-color: rgb(5, 70, 70);
+}
