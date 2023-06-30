@@ -5,9 +5,14 @@
   max-width: 938px;
   justify-content: space-between;
   color: #868ca0;
-  background-color: rgba($color: #ffffff, $alpha: 0.1);
+  background-color: rgba($color: #262830, $alpha: 0.5);
+  transition: all ease-in 100ms;
   border-radius: 10px;
   box-sizing: border-box;
+  &.active {
+    background-color: #262830;
+    transition: all ease-in 100ms;
+  }
 }
 
 .input {
@@ -25,6 +30,7 @@
   }
 
   &:focus {
+    color: #fff;
     outline: none;
     &::placeholder {
       color: transparent;
@@ -44,12 +50,47 @@ button {
   width: 25px;
   height: 25px;
   color: #868ca0;
+  transition: all ease-in 100ms;
+
+  &.active {
+    color: #fff;
+  }
 }
 .clearBtn {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   color: #868ca0;
+  transition: all ease-in 100ms;
+
+  &.active {
+    color: #fff;
+  }
 }
 
-@media screen {
+@media (max-width: 600px) {
+  .input {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 450px) {
+  .input {
+    font-size: 16px;
+  }
+
+  button {
+    padding: 0;
+    width: 35px;
+    height: 35px;
+  }
+  
+  .searchBtn {
+    width: 20px;
+    height: 20px;
+  }
+
+  .clearBtn {
+    width: 20px;
+    height: 20px;
+  }
 }
