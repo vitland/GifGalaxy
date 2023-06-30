@@ -1,6 +1,11 @@
+import Layout from './components/Layout/Layout'
+import Navbar from './components/Navbar/Navbar'
+
 const App = () => {
   return (
-    <div>App</div>
+    <Layout>
+      <Navbar />
+    </Layout>
   )
 }
 
