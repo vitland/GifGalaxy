@@ -28,3 +28,4 @@ const GifContainer = ({ gifList }) => {
     </div>
   )
 };
+export default GifContainer

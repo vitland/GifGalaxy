@@ -3,18 +3,18 @@ import PaginationButton from '../PaginationButton/PaginationButton';
 import styles from './Pagination.module.scss';
 import getPaginationNumbers from './getPaginationNumbers';
 
-const Pagination = ({ fetchSearch, query, pagination }) => {
+const Pagination = ({ switchPage, pagination }) => {
   const [pages, setPages] = useState(null)
   const [curentPage, setCurentPage] = useState(1)
   useEffect(() => {
     setCurentPage((pagination.offset - 1) / 9 + 1)
     setPages(getPaginationNumbers(curentPage, pagination.total_count))
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pagination.offset, curentPage, query])
+  }, [pagination.offset, curentPage])
 
   const handleClick = (value) => {
     const offset = value * 9 - 8
-    fetchSearch(query, offset)
+    switchPage(offset)
   }
   return (
     <div className={styles.container}>

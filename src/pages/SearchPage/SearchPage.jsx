@@ -1,11 +1,35 @@
+import { useEffect, useState } from 'react';
 import GifContainer from '../../components/GifContainer/GifContainer';
 import Pagination from '../../components/Pagination/Pagination'
 import Searchbar from '../../components/Searchbar/Searchbar';
+import { GiphyApi } from '../../utils/api';
 
+const SearchPage = () => {
+  const [query, setQuery] = useState(null)
+  const [gifList, setGifList] = useState({
+    data: null,
+    pagination: {
+      offset: null
+    }
+  })
 
+  useEffect(() => {
+    fetchSearch('space', 1)
+  }, [])
 
-const SearchPage = ({ gifList, query, fetchSearch }) => {
+  const switchPage = (offset) => {
+    fetchSearch(query, offset)
+  }
 
+  async function fetchSearch(value, offset) {
+    try {
+      const data = await GiphyApi.searchGif(value, offset);
+      setGifList(data);
+      setQuery(value)
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <>
@@ -14,7 +38,7 @@ const SearchPage = ({ gifList, query, fetchSearch }) => {
       {gifList.pagination.total_count > 10 && (
         <Pagination
           pagination={gifList.pagination}
-          {...{ fetchSearch, query }} />
+          switchPage={switchPage} />
       )}
     </>
   )

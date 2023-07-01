@@ -1,10 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import GifCard from '../../components/GifCard/GifCard';
 import Loader from '../../components/Loader/Loader';
 import { testWebP } from '../../assets/function/webp';
+import { GiphyApi } from '../../utils/api';
 
-const RandomPage = ({gif}) => {
+const RandomPage = () => {
   const [isWebp, setIsWebp] = useState(null);
+  const [gif, setGif] = useState(null);
+
+  async function fetchRandom() {
+    setGif(null);
+    try {
+      const data = await GiphyApi.randomGif();
+      setGif(data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchRandom();
+  }, []);
 
   testWebP(function (support) {
     setIsWebp(support);
