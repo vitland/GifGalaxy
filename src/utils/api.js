@@ -7,4 +7,12 @@ export const GiphyApi = {
         const response = await axios.get(`${baseUrl}/search?q=${query}&api_key=${api_key}&limit=9&offset=${offset}`)
         return response.data
     },
+    async trendyGifs(offset) {
+        const response = await axios.get(`${baseUrl}/trending?&api_key=${api_key}&limit=9&offset=${offset}`)
+        return response.data
+    },
+    async randomGif() {
+        const response = await axios.get(`${baseUrl}/random?&api_key=${api_key}&limit=1`)
+        return response.data
+    },
 }
