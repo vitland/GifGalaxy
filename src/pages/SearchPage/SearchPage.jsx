@@ -1,8 +1,12 @@
-import GifContainer from '../../components/GifContainer/GifContainer'
+import GifContainer from '../../components/GifContainer/GifContainer';
 import Pagination from '../../components/Pagination/Pagination'
-import Searchbar from '../../components/Searchbar/Searchbar'
+import Searchbar from '../../components/Searchbar/Searchbar';
+
+
 
 const SearchPage = ({ gifList, query, fetchSearch }) => {
+
+
   return (
     <>
       <Searchbar />

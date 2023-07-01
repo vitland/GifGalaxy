@@ -6,6 +6,7 @@ import GifCardSceletone from '../GifCardSceletone/GifCardSceletone';
 
 const GifContainer = ({ gifList }) => {
   const [isWebp, setIsWebp] = useState(null)
+  
   testWebP(function (support) {
     setIsWebp(support)
   })
@@ -27,5 +28,3 @@ const GifContainer = ({ gifList }) => {
     </div>
   )
 };
-
-export default GifContainer;

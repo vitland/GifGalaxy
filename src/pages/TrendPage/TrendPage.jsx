@@ -1,8 +1,16 @@
 
-const TrendPage = () => {
-  return (
-    <div>TrendPage</div>
-  )
-}
+import GifContainer from '../../components/GifContainer/GifContainer';
+import Loader from '../../components/Loader/Loader';
 
-export default TrendPage
+
+const TrendPage = ({gifList}) => {
+
+
+
+  if (!gifList) {
+    return <Loader />;
+  }
+  return <GifContainer {...{ gifList }} />;
+};
+
+export default TrendPage;
