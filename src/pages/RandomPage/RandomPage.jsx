@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import GifCard from '../../components/GifCard/GifCard';
 import Loader from '../../components/Loader/Loader';
 import { testWebP } from '../../assets/function/webp';
 import { GiphyApi } from '../../utils/api';
+import GifCardFullPage from '../../components/GifCardFullPage/GifCardFullPage';
 
 const RandomPage = () => {
   const [isWebp, setIsWebp] = useState(null);
@@ -32,12 +32,12 @@ const RandomPage = () => {
   }
     
   return (
-    <GifCard
-      key={gif.id}
-      gif={isWebp ? gif.images.fixed_height.webp : gif.images.fixed_height.url}
-      title={gif.title}
-    />
-  );
+      <GifCardFullPage
+        key={gif.id}
+        gif={isWebp ? gif.images.fixed_height.webp : gif.images.fixed_height.url}
+        title={gif.title}
+      />
+  )
 };
 
 export default RandomPage;
