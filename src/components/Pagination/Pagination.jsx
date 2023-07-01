@@ -9,6 +9,7 @@ const Pagination = ({ switchPage, pagination }) => {
   useEffect(() => {
     setCurentPage((pagination.offset - 1) / 9 + 1)
     setPages(getPaginationNumbers(curentPage, pagination.total_count))
+    window.scrollTo(0, 0)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pagination.offset, curentPage])
 

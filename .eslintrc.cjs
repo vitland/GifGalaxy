@@ -14,5 +14,6 @@ module.exports = {
     'react/prop-types': 'off',
     'quotes': ['warn', 'single'],
     'jsx-quotes': ['warn', 'prefer-single'],
+    'no-irregular-whitespace': ['error', { skipJSXText: true }],
   },
 };
