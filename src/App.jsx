@@ -6,7 +6,6 @@ import TrendPage from './pages/TrendPage/TrendPage';
 import RandomPage from './pages/RandomPage/RandomPage';
 
 const App = () => {
-
   return (
     <Layout>
       <Navbar />

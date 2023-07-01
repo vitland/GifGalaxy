@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import GifContainer from '../../components/GifContainer/GifContainer';
-// import Loader from '../../components/Loader/Loader';
 import Pagination from '../../components/Pagination/Pagination';
 import { GiphyApi } from '../../utils/api';
-
 
 const TrendPage = () => {
   const [gifList, setGifList] = useState({
