@@ -1,0 +1,27 @@
+.card {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    box-sizing: border-box;
+    background: rgba(160, 160, 160, 0.2);
+    background: linear-gradient(100deg, rgba(38, 40, 48, 0.4) 8%, rgba(38, 40, 48, 0.8) 18%, rgba(38, 40, 48, 0.4) 33%);
+    background-size: 200% 200%;
+    animation: wave-lines 2s infinite ease-out;
+    border-radius: 10px;
+}
+.image {
+    width: 50%;
+    opacity: 0.4;
+}
+
+@keyframes wave-lines {
+    0% {
+        background-position: 100% 0;
+    }
+     100% {
+        background-position: -100% 0;
+    }
+}
