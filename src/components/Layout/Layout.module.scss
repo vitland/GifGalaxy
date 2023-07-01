@@ -26,6 +26,13 @@
 .logo {
   width: 170px;
 }
+
+@media (max-width: 600px) {
+  .body {
+    padding-top: 0;
+  }
+}
+
 @keyframes bounce-background {
   from {
     background-position: 0 0px;

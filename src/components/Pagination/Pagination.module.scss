@@ -11,3 +11,16 @@
     display: flex;
     gap: 20px;
 }
+
+@media (max-width: 600px) {
+    .container {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .wrapper {
+        order: -1;
+        width: 100%;
+        gap: 5px;
+        justify-content: space-between;
+    }
+}

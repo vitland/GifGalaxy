@@ -1,21 +1,20 @@
-import { useState } from 'react';
-import PaginationButton from '../PaginationButton/PaginationButton'
+import { useEffect, useState } from 'react';
+import PaginationButton from '../PaginationButton/PaginationButton';
 import styles from './Pagination.module.scss';
-const initializationState = [1, 2, 3, 4, 5]
+import getPaginationNumbers from './getPaginationNumbers';
 
-const Pagination = ({fetchSearch, query, pagination}) => {
-  const [pages, setPages] = useState(initializationState)
-  const curentPage = (pagination.offset - 1) / 9 + 1
+const Pagination = ({ fetchSearch, query, pagination }) => {
+  const [pages, setPages] = useState(null)
+  const [curentPage, setCurentPage] = useState(1)
+  useEffect(() => {
+    setCurentPage((pagination.offset - 1) / 9 + 1)
+    setPages(getPaginationNumbers(curentPage, pagination.total_count))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pagination.offset, curentPage, query])
+
   const handleClick = (value) => {
     const offset = value * 9 - 8
     fetchSearch(query, offset)
-    if(value > 3) {
-      setPages(pages.map((page, index) => {
-        return value - 2 + index
-      }))
-    } else {
-      setPages(initializationState)
-    }
   }
   return (
     <div className={styles.container}>
@@ -23,9 +22,9 @@ const Pagination = ({fetchSearch, query, pagination}) => {
         text='Назад'
         handleClick={handleClick}
         value={curentPage - 1}
-        disabled={curentPage > 1 ? false : true} />
+        disabled={curentPage <= 1} />
       <div className={styles.wrapper}>
-        {pages.map(page => (
+        {pages && pages.map(page => (
           <PaginationButton
             key={page}
             text={page}
@@ -39,7 +38,7 @@ const Pagination = ({fetchSearch, query, pagination}) => {
         text='Вперед'
         handleClick={handleClick}
         value={curentPage + 1}
-        disabled={false} />
+        disabled={curentPage * 9 >= pagination.total_count} />
     </div>
   )
 }
