@@ -7,7 +7,6 @@ import RandomPage from './pages/RandomPage/RandomPage';
 import NotFound from './pages/NotFound/NotFound';
 
 const App = () => {
-
   return (
     <Layout>
       <Navbar />

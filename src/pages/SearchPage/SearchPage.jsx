@@ -41,7 +41,7 @@ const SearchPage = () => {
           switchPage={switchPage} />
       )}
     </>
-  )
-}
+  );
+};
 
-export default SearchPage
+export default SearchPage;

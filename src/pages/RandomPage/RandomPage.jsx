@@ -30,7 +30,7 @@ const RandomPage = () => {
   if (!gif) {
     return <Loader />
   }
-
+    
   return (
       <GifCardFullPage
         key={gif.id}

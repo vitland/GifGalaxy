@@ -3,7 +3,6 @@ import GifContainer from '../../components/GifContainer/GifContainer';
 import Pagination from '../../components/Pagination/Pagination';
 import { GiphyApi } from '../../utils/api';
 
-
 const TrendPage = () => {
   const [gifList, setGifList] = useState({
     data: null,
