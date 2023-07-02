@@ -12,7 +12,8 @@ const GifCard = ({ gif, title }) => {
           alt={title}
           style={!isLoading ? {
             visibility: 'hidden',
-            position: 'absolute'
+            position: 'absolute',
+            width: 0
           } : {}}
           onLoad={() => setIsLoading(true)} />
         {(!isLoading && <GifCardSceletone />
