@@ -13,9 +13,9 @@ const GifContainer = ({ gifList }) => {
 
   return (
     <div className={styles.container}>
-      {gifList ? gifList.map((gif) => (
+      {gifList ? gifList.map((gif, index) => (
         <GifCard
-          key={gif.id}
+          key={gif.id + index}
           gif={isWebp ? gif.images.fixed_height.webp : gif.images.fixed_height.url}
           title={gif.title} />
       )) : (
