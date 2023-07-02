@@ -3,12 +3,8 @@ import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { FaXmark } from 'react-icons/fa6';
 import styles from './Searchbar.module.scss';
 
-const Searchbar = ({ onChange, onClear, query }) => {
+const Searchbar = ({ onChange, onSubmit, onClear, query }) => {
   const [isActive, setIsActive] = useState(false);
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-  };
 
   const toggleActive = () => {
     setIsActive(!isActive);

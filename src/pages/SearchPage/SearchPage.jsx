@@ -14,8 +14,8 @@ const SearchPage = ({ query, setQuery }) => {
 
   useEffect(() => {
     fetchSearch(query, 1);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const switchPage = (offset) => {
     fetchSearch(query, offset);
@@ -25,6 +25,10 @@ const SearchPage = ({ query, setQuery }) => {
     setQuery(e.target.value);
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    fetchSearch(query, 1);
+  };
   const onClear = () => {
     setQuery('');
   };
@@ -41,7 +45,12 @@ const SearchPage = ({ query, setQuery }) => {
 
   return (
     <>
-      <Searchbar onChange={onChange} onClear={onClear} query={query} />
+      <Searchbar
+        onChange={onChange}
+        onSubmit={onSubmit}
+        onClear={onClear}
+        query={query}
+      />
       <GifContainer gifList={gifList.data} />
       {gifList.pagination.total_count > 10 && (
         <Pagination pagination={gifList.pagination} switchPage={switchPage} />
