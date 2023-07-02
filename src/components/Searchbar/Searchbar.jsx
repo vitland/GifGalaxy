@@ -3,20 +3,11 @@ import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { FaXmark } from 'react-icons/fa6';
 import styles from './Searchbar.module.scss';
 
-const Searchbar = () => {
-  const [value, setValue] = useState('');
+const Searchbar = ({ onChange, onClear, query }) => {
   const [isActive, setIsActive] = useState(false);
-
-  const onChange = (e) => {
-    setValue(e.target.value);
-  };
 
   const onSubmit = (e) => {
     e.preventDefault();
-  };
-
-  const onClear = () => {
-    setValue('');
   };
 
   const toggleActive = () => {
@@ -41,7 +32,7 @@ const Searchbar = () => {
       <input
         type='text'
         name='search'
-        value={value}
+        value={query}
         className={styles.input}
         onChange={onChange}
         placeholder='Поиск гиф'
