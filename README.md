@@ -6,7 +6,7 @@ Web application for searching gifs using the GIPHY API.
 
 ## Description
 
-GIF GALAXY is a web application designed to allow users to easily search and discover gifs using the GIPHY API. The application is built using React, React Router, JavaScript, and CSS.
+GIF GALAXY is a web application designed to allow users to easily search and discover gifs using the GIPHY API. The application is built using React, React Router, JavaScript, and SCSS.
 
 This project was developed collaboratively with [Viktor Kikodze](https://github.com/vitland) as part of our goal to improve our teamwork skills.
 
