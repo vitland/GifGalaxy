@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import styles from './PaginationButton.module.scss';
+import Button from '../Button/Button';
 
 const PaginationButton = ({text, handleClick, value, curentPage, disabled}) => {
     const [isLoading, setIsLoading] = useState(false)
@@ -13,12 +13,9 @@ const PaginationButton = ({text, handleClick, value, curentPage, disabled}) => {
     }, [value, curentPage])
     
   return (
-    <button
-        className={`${styles.button} ${isLoading && styles.load} ${isActive && styles.active} ${disabled && styles.disabled}`}
-        onClick={onClick}
-        disabled={isLoading || disabled || isActive} >
-            {text}
-    </button>
+    <Button
+      {...{disabled, isActive, isLoading, text}}
+      handleClick={onClick} />
   )
 }
 

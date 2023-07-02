@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
-import Loader from '../../components/Loader/Loader';
 import { testWebP } from '../../assets/function/webp';
 import { GiphyApi } from '../../utils/api';
+import Loader from '../../components/Loader/Loader';
 import GifCardFullPage from '../../components/GifCardFullPage/GifCardFullPage';
+import Button from '../../components/Button/Button';
+import styles from './RandomPage.module.scss';
 
 const RandomPage = () => {
   const [isWebp, setIsWebp] = useState(null);
   const [gif, setGif] = useState(null);
+  // const [isLoading, setIsLoading] = useState(false)
+
 
   async function fetchRandom() {
     setGif(null);
@@ -28,15 +32,23 @@ const RandomPage = () => {
 
 
   if (!gif) {
-    return <Loader />
+    return ( <Loader /> )
   }
-    
+
   return (
+    <>
+      <div className={styles.wrapper}>
+        <Button
+          text='Обновить гиф'
+          // isLoading={isLoading}
+          handleClick={fetchRandom} />
+      </div>
       <GifCardFullPage
         key={gif.id}
         gif={isWebp ? gif.images.fixed_height.webp : gif.images.fixed_height.url}
         title={gif.title}
       />
+    </>
   )
 };
 

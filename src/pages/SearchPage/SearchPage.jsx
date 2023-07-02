@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
+import { GiphyApi } from '../../utils/api';
 import GifContainer from '../../components/GifContainer/GifContainer';
 import Pagination from '../../components/Pagination/Pagination';
 import Searchbar from '../../components/Searchbar/Searchbar';
-import { GiphyApi } from '../../utils/api';
 
-const SearchPage = () => {
-  const [query, setQuery] = useState('');
+const SearchPage = ({ query, setQuery }) => {
   const [gifList, setGifList] = useState({
     data: null,
     pagination: {
@@ -14,11 +13,8 @@ const SearchPage = () => {
   });
 
   useEffect(() => {
-    fetchSearch('space', 1);
-  }, []);
-
-  useEffect(() => {
-      fetchSearch(query, 1);
+    fetchSearch(query, 1);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
   const switchPage = (offset) => {
